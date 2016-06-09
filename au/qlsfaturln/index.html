@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <base href=".">
+    <title></title>
+    <meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <style>
+        /*========= DEFAULTING =========*/
+        
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        font,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        form,
+        fieldset,
+        input,
+        button,
+        textarea,
+        label,
+        legend,
+        p,
+        blockquote,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        menu {
+            /* margin:0; */
+            
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+        }
+        body {
+            line-height: 1;
+            color: #FFFFFF;
+            background: rgb(233, 77, 77);
+        }
+        :focus {
+            outline: 0;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        caption,
+        th,
+        td {
+            text-align: left;
+            font-weight: normal;
+        }
+        fieldset,
+        img {
+            border: 0;
+        }
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        strong,
+        th,
+        var {
+            font-style: normal;
+            font-weight: normal;
+        }
+        ol,
+        ul,
+        menu {
+            list-style: none;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: normal;
+        }
+        button::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+        /* HTML5 display-role reset for older browsers */
+        
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+        /*==TEMPORAIRE==*/
+        
+        #template_footer {
+            display: none;
+        }
+        /*========= BASE =========*/
+        
+        body {
+            font: 16px/16px 'Open Sans', arial, sans-serif;
+            text-align: center;
+            background-color: #000000;
+            /*max-width:100%;
+  position:relative;*/
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover {
+            color: #555;
+        }
+        .wrapper {
+            /*width:500px;
+  min-height:466px;*/
+            
+            text-align: left;
+            margin: 0 auto;
+            padding-top: 15px;
+        }
+        footer {
+            background: #1e1e1e;
+            color: #fff;
+            height: 50px;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #fff;
+        }
+        /*========= HEADER =========*/
+        
+        header {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        header h1 {
+            margin-bottom: 20px;
+            margin-top: 10px;
+            font-size: 34pt;
+            color: #ffd05c;
+            text-transform: uppercase;
+            vertical-align: middle;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        header p {
+            font-size: 17px;
+            line-height: 20px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        header p strong {
+            font-weight: bold;
+        }
+        #timer {
+            font-weight: bold;
+        }
+        /*========= QUESTIONS =========*/
+        
+        .questions,
+        .final {
+            display: none;
+            width: 100%;
+        }
+        .questions h1 {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19px;
+            margin-bottom: 10px;
+        }
+        .questions h1 b {
+            color: #ffd05c;
+        }
+        #q1 {
+            display: inline-block;
+        }
+        .final {
+            text-align: center;
+        }
+        .final .status {
+            font-size: 14px;
+            line-height: 25px;
+            color: #bf0000;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status {
+            display: none;
+        }
+        #status1 {
+            display: block;
+        }
+        #status5 {
+            color: #000;
+        }
+        #status5 b {
+            color: #49b70a;
+            display: block;
+        }
+        #warning {
+            font-size: 11px;
+            color: #909090;
+            line-height: 13px;
+            margin: 12px 0;
+        }
+        .show {
+            display: inline-block;
+            -webkit-animation: showElement 1s 1;
+            -moz-animation: showElement 1s 1;
+            -ms-animation: showElement 1s 1;
+            -o-animation: showElement 1s 1;
+            animation: showElement 1s 1;
+        }
+        /*========= BTN =========*/
+        
+        #choices li,
+        .yes,
+        #agree {
+            padding: 5px;
+            font-size: 38px;
+            line-height: 52px;
+            color: #fff;
+            cursor: pointer;
+            background: #ffd05c;
+        }
+        #choices li,
+        .no,
+        #agree {
+            padding: 5px;
+            font-size: 38px;
+            line-height: 52px;
+            color: #fff;
+            cursor: pointer;
+            background: #aaa;
+        }
+        #choices li:active,
+        .yes:active,
+        .no:active,
+        #loading-bar span {
+            background: rgb(73, 194, 1);
+            background: -moz-linear-gradient(top, rgb(73, 194, 1) 0%, rgb(37, 151, 0) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(73, 194, 1)), color-stop(100%, rgb(37, 151, 0)));
+            background: -webkit-linear-gradient(top, rgb(73, 194, 1) 0%, rgb(37, 151, 0) 100%);
+            background: -o-linear-gradient(top, rgb(73, 194, 1) 0%, rgb(37, 151, 0) 100%);
+            background: -ms-linear-gradient(top, rgb(73, 194, 1) 0%, rgb(37, 151, 0) 100%);
+            background: linear-gradient(to bottom, rgb(73, 194, 1) 0%, rgb(37, 151, 0) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#49c201', endColorstr='#259700', GradientType=0);
+        }
+        .yes,
+        .no,
+        #agree {
+            /*width:100%;*/
+            
+            height: 42px;
+            line-height: 42px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+            text-shadow: 0 0px 2px rgba(0, 0, 0, 0.4);
+        }
+        #agree {
+            width: 230px;
+            display: block;
+            margin: 15px auto;
+            font-size: 24px;
+            line-height: 42px;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 0px #3f7711, -1px -1px 0px #3f7711, 1px -1px 0px #3f7711, -1px 1px 0px #3f7711, 1px 0 0px #3f7711;
+            box-shadow: inset 0 -4px 5px -4px #0a4f01, inset 0 4px 5px -4px #2f9b06;
+            background: rgb(129, 242, 19);
+            background: -moz-linear-gradient(top, rgba(129, 242, 19, 1) 0%, rgba(11, 118, 0, 1) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(129, 242, 19, 1)), color-stop(100%, rgba(11, 118, 0, 1)));
+            background: -webkit-linear-gradient(top, rgba(129, 242, 19, 1) 0%, rgba(11, 118, 0, 1) 100%);
+            background: -o-linear-gradient(top, rgba(129, 242, 19, 1) 0%, rgba(11, 118, 0, 1) 100%);
+            background: -ms-linear-gradient(top, rgba(129, 242, 19, 1) 0%, rgba(11, 118, 0, 1) 100%);
+            background: linear-gradient(to bottom, rgba(129, 242, 19, 1) 0%, rgba(11, 118, 0, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#81f213', endColorstr='#0b7600', GradientType=0);
+        }
+        #agree span {
+            width: 164px;
+            height: 1px;
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 33px;
+            background: -moz-linear-gradient(left, rgba(164, 208, 171, 0) 0%, rgba(164, 208, 171, 0.02) 1%, rgba(171, 211, 177, 1) 50%, rgba(164, 208, 171, 0) 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(164, 208, 171, 0)), color-stop(1%, rgba(164, 208, 171, 0.02)), color-stop(50%, rgba(171, 211, 177, 1)), color-stop(100%, rgba(164, 208, 171, 0)));
+            background: -webkit-linear-gradient(left, rgba(164, 208, 171, 0) 0%, rgba(164, 208, 171, 0.02) 1%, rgba(171, 211, 177, 1) 50%, rgba(164, 208, 171, 0) 100%);
+            background: -o-linear-gradient(left, rgba(164, 208, 171, 0) 0%, rgba(164, 208, 171, 0.02) 1%, rgba(171, 211, 177, 1) 50%, rgba(164, 208, 171, 0) 100%);
+            background: -ms-linear-gradient(left, rgba(164, 208, 171, 0) 0%, rgba(164, 208, 171, 0.02) 1%, rgba(171, 211, 177, 1) 50%, rgba(164, 208, 171, 0) 100%);
+            background: linear-gradient(to right, rgba(164, 208, 171, 0) 0%, rgba(164, 208, 171, 0.02) 1%, rgba(171, 211, 177, 1) 50%, rgba(164, 208, 171, 0) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00a4d0ab', endColorstr='#00a4d0ab', GradientType=1);
+        }
+        #agree:before,
+        #agree:after {
+            content: "";
+            background: #2f9b06;
+            height: 42px;
+            width: 15px;
+            display: block;
+            position: absolute;
+            top: 0px;
+        }
+        #agree:before {
+            left: 0px;
+            border-radius: 6px 14px 14px 6px;
+        }
+        #agree:after {
+            right: 0px;
+            border-radius: 14px 6px 6px 14px;
+        }
+        .agreeButton {
+            display: block;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        var fullTime = 120;
+        $(document).ready(function() {
+            timer.init(fullTime);
+            $('.questions .yes, .questions .no').click(function() {
+                $(this).parent().hide().next('section').addClass('show');
+            })
+        });
+
+        function checkAnswers(checkStep) {
+            switch (checkStep) {
+                case 0:
+                    $('#status1').hide();
+                    $('#status2, #checklist').fadeIn(500);
+                    break;
+                case 1:
+                    $('#status2,#check1').hide();
+                    $('#status3, #check2, #check3').fadeIn(500);
+                    break;
+                case 2:
+                    $('#status3').hide();
+                    $('#status4, #check4').fadeIn(500);
+                    break;
+            }
+        }
+        var timer = function() {
+                var timeLeft;
+                var minutesCtn = $('#minutes');
+                var secondsCtn = $('#seconds');
+                var timerCtn = $('#timer');
+
+                function updateTimer(n) {
+                    if (n > 0) {
+                        var minutes, seconds;
+                        minutes = addLeadingZero(Math.floor(n / 60));
+                        seconds = addLeadingZero(n % 60);
+                        minutesCtn.text(minutes);
+                        secondsCtn.text(seconds);
+                        timer.countdown();
+                    } else {
+                        timerCtn.text('few seconds');
+                    }
+                }
+
+                function addLeadingZero(n) {
+                    if (n < 10) {
+                        return '0' + n;
+                    } else {
+                        return n;
+                    }
+                }
+                return {
+                    init: function(n) {
+                        if (n > 0) {
+                            timeLeft = n;
+                            updateTimer(n);
+                        }
+                    },
+                    countdown: function() {
+                        timeLeft--;
+                        setTimeout(function() {
+                            updateTimer(timeLeft)
+                        }, 1000);
+                    }
+                }
+            }
+            ();
+    </script>
+</head>
+
+<body style="">
+    <script type="text/javascript" src="backfix.min.js"></script>
+
+    <script type="text/javascript">
+        bajb_backdetect.OnBack = function() {
+            window.history.back = function() {
+                document.location = 'http://vvvv.perfect-dating-match.com/1a7366da-77e5-4eab-9727-64b2d27f1645?l=1&s={dynamicSITE}&c={dynamicCMP}&p={dynamicPUB}&ct={dynamicCON}&dt={dynamicDTY}&do={dynamicDOS}'
+            }
+        }
+    </script>
+    <script>
+        alert("WARNING!\n\nWomen you know and women near you are looking for a FUCK BUDDY tonight!\n Do you want to see their photos?");
+    </script>
+
+    <div class="wrapper">
+        <header>
+            <h1>       IMPORTANT!                 </h1><img src="J2G1-new.gif" alt="" style="width: 100%;"><img src="J2G4-new.gif" alt="" style="width: 100%; margin-top: 5px;">
+            <p style="padding:5px;"> Before we can show you a list and photos of women who live near you and are ready to have <u>         sex right now</u>, we need to ask a couple of questions. </p><img src="J2G2-new.gif" alt="" style="width: 100%;"><img src="J2G3-new.gif" alt="" style="width: 100%; margin-top: 5px;">
+        </header>
+        <section class="questions" id="q1">
+            <h1><b>         Question 1:                         </b>       Many of these women are desperate single moms and married women looking to cheat. They could be your neighbors or someone you know. Do you agree to keep the identity of these women a secret?                 </h1>
+            <br>
+            <div class="yes"> Yes </div>
+            <div class="no"> No </div>
+        </section>
+        <section class="questions" id="q2">
+            <h1><b>         Question 2:                         </b>       These women have asked us to not allow men that are seeking a "relationship". They only desire quick sex.                          <u>         Not dating                         </u>       . Do you agree to this request?                 </h1>
+            <br>
+            <div class="yes"> Yes </div>
+            <div class="no"> No </div>
+        </section>
+        <section class="questions" id="q3">
+            <h1><b>         Question 3:                         </b>       Do you agree to use a condom when having sex with a partner you meet on our site?                 </h1>
+            <br>
+            <div class="yes"> Yes </div>
+            <div class="no"> No </div>
+        </section>
+        <section class="questions" id="q4">
+            <h1><b>         Question 4:                         </b>       Finally, are you at least 25 years old? The women have requested that we not let those younger than 25 contact them because of past rude behavior by younger men.                 </h1>
+            <br>
+            <div class="yes"> Yes </div>
+            <div class="no"> No </div>
+        </section>
+        <section class="questions" id="q5">
+            <h1>       Thank you.                         <br>       You may now see our list and photos of women who are in your area. Again, please keep their identity a secret.                         <p><br>         Tap on the "CONTINUE" button below to search with your zip/postal code.                         </p></h1>
+            <br>
+            <div class="yes"><a href="http://vvvv.perfect-dating-match.com/click" class="agreeButton" style="color:#fff;">         CONTINUE »                         </a>
+            </div>
+        </section>
+    </div> <img width="1" height="1" src="http://main.exoclick.com/tag.php?goal=0fcbf0a290e4dba30d5702ec0ed9444e">
+</body>
+
+</html>

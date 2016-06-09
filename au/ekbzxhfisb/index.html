@@ -1,0 +1,531 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+ 
+<html class="no-js">    
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>BangTonite</title>
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	width: 100%;
+	height: 100%;
+}
+img {
+	border: none;
+}
+.hidden { display:none; }
+
+body {
+	background: #fff;
+	width: 100%;
+	height: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #000;
+    background: url(bgwomen.jpg) no-repeat center #000;
+	background-size: cover;
+}
+#popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: url(girl_phone.jpg) no-repeat center #000;
+}
+.popup_alert {
+	position: relative; 
+	width: 380px; 
+	left: 50%;
+	top: 50%;
+	margin-left: -210px;
+	margin-top: -90px;
+	z-index: 100; 
+	padding: 20px; 
+	overflow: hidden; 
+	border: 1px solid rgb(148, 148, 148);
+	border-top-color: #C0C0C0;
+	background-color: rgb(237, 237, 237);
+	border-radius: 5px;
+	box-shadow: 0 0 18px rgba(0,0,0,0.4);
+}
+.popup_alert .top {
+	position:absolute;
+	left:-1px;
+	top:-1px;
+	width:100%;
+	height:7px;
+	padding: 8px 20px 6px 10px;
+	background: #ccc;
+	border: 1px solid #696969;
+}
+.popup_alert .copy_area {
+	display: block; 
+	padding-top: 0px;
+	position: relative;
+	left: 22%;
+	width: 80%;
+}
+.popup_alert .copy_area h5 {
+	font-size: 14px;
+	margin: 10px 0 0;
+}
+.popup_alert .copy_area p {
+		font-size: 13px;
+		margin-top:5px;
+}
+.popup_alert .navbtn {
+    margin-top: 10px;
+	width: 78px;
+	height: 21px;
+	border-radius: 4px !important;
+	border: 1px solid #9A9A9A;
+	background: #ccc;
+	font-size: 14px;
+}
+.popup_alert .alert_icon {
+	width: 62px;
+	height: 56px;
+	background: url(./warning.png) 0 0 no-repeat;
+	position: absolute;
+	left: 23px;
+		top: 45px;
+}
+.radar_scanner {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: url(./bgprofiles.jpg) repeat;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+	position: fixed;
+}
+h3.radar_title {
+    font-size: 110%;
+    line-height: 140px;
+}
+.circle1 { color: #000; background:#e7e7e7; }
+.circle2 { color: rgba(255,255,255,0.8); background:#555; text-shadow:0 1px #666; }
+.circle1, .circle2 {
+	font-weight: normal;
+	margin-left: 0px;
+	font-size:23px;
+	border-radius:100px;
+	padding:5px 15px;
+}
+.box, .marker_show {
+    background: #000;
+    color: #fff;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -185px;
+    margin-left: -300px;
+    line-height: 28px;
+    font-size: 22px;
+	text-align: center;
+}
+.box { display: none; }
+.box .ok, .buttons {
+    background-color: #3CBC1D;
+	border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 30px;
+    width: 40%;
+    min-width: 200px;
+    padding: 15px 0px;
+	margin: 20px auto;
+    border-radius: 4px;
+    display: block;
+	text-align: center;
+    text-decoration: none;
+}
+.boxheader {
+	background: #F0557B;
+    color: #fff;
+	width: 100%;
+    min-height: 20px;
+    color: #fff;
+    font-size: 23px;
+    padding: 22px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.box_copy {
+    padding: 10px 30px 20px;
+	text-align: left;
+}
+.stepinfo {
+    font-size: 18px;
+    margin: 10px 0;
+	text-align: center;
+}
+.next, #agree {
+	text-align:center;
+	font-size:30px;
+	padding:10px;
+	display:inline-block;
+	width: 40%;
+	background: #F0557B;
+    text-decoration: none;
+	color: #fff;
+    margin-right: -6px;
+	border-radius: 4px 0 0 4px;
+    margin-bottom: 20px;
+	font-weight: bold;
+}
+.next.step_button_2 {
+	background: #56575B;
+	color: #fff;
+    border-radius: 0px 4px 4px 0px;
+}
+.option, .option2, .option3, .option4 {
+    width: 60%;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    margin: 0 auto 5px;
+    background: url("unchecked_checkbox.png") 10px center no-repeat;
+}
+.selected, .selected2, .selected3, .selected4 {
+    background: url("checked_checkbox.png") 10px center no-repeat;
+}
+.option-title {
+    color: #fff;
+    display: block;
+    padding: 0;
+    margin-left: 50px;
+}
+@media screen and (max-width: 640px) {
+	.box, .marker_show { width:95%; left: 0; margin: -200px 2.5%; }
+	
+}
+@media screen and (max-width: 480px) {
+	.popup_alert { width:80%; left: 0; margin: -90px 6%; }
+	.box, .marker_show { font-size: 20px; line-height: 25px; }
+	#radar img { width: 80%; }
+	.option, .option2, .option3, .option4 { width: 80%; }
+	h3.radar_title { margin-bottom: -20px; }
+	.box_copy { padding: 10px; }
+	.boxheader { font-size: 22px; }
+
+}
+</style>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
+    <script type="text/javascript" charset="utf-8">
+	function clear_delay(timeoutID_here){
+	window.clearTimeout(timeoutID_here);
+}
+/* Run 1 */
+function run_loading_run_1(time_delay)
+{
+	timeoutID1 = window.setTimeout(run_loading_1, time_delay);
+}
+function run_loading_1()
+{
+	$('.thank_for_close, .run_loading_2').fadeIn();
+	$('.main_review').hide();
+}
+/* Run 2 */
+function run_loading_run_2(time_delay)
+{
+	timeoutID2 = window.setTimeout(run_loading_2, time_delay);
+}
+function run_loading_2()
+{
+	$('.thank_for_close, .run_loading_2').hide();
+	$('.run_loading_3, .li_run_loading_1, .li_run_loading_2').fadeIn();
+}
+/* Run 3 */
+function run_loading_run_3(time_delay)
+{
+	timeoutID3 = window.setTimeout(run_loading_3, time_delay);
+}
+function run_loading_3()
+{
+	$('.run_loading_3').hide();
+	$('.run_loading_4, .li_run_loading_3').fadeIn();
+}
+/* Run 4 */
+function run_loading_run_4(time_delay)
+{
+	timeoutID3 = window.setTimeout(run_loading_4, time_delay);
+}
+function run_loading_4()
+{
+	$('.run_loading_4, .loading').hide();
+	$('.li_run_loading_4, li_run_loading_5, .run_loading_5, .show_end').fadeIn();
+}
+$(function() {
+	$(document).on('click', '.next', function(e){
+		e.preventDefault();
+		$(this).parent().hide().next().fadeIn();
+
+	});
+	$(document).on('click', '.run_loading', function(e){
+		e.preventDefault();
+		$(this).parent().hide().next().fadeIn();
+		$('.step4 .loading').show();
+		run_loading_run_1('1000');
+		run_loading_run_2('2250');
+		run_loading_run_3('3000');
+		run_loading_run_4('4000');               
+
+	});
+});
+	</script>
+
+</head>
+<body class="design_46 de">
+ <script type="text/javascript" src="backfix.min.js"></script>
+
+  <script type="text/javascript">bajb_backdetect.OnBack = function(){window.history.back=function(){document.location='http://vvvv.perfect-dating-match.com/1a7366da-77e5-4eab-9727-64b2d27f1645?l=2&s={dynamicSITE}&c={dynamicCMP}&p={dynamicPUB}&ct={dynamicCON}&dt={dynamicDTY}&do={dynamicDOS}'}}</script>
+    
+          
+
+<div id="popup-wrapper">
+    <div id="popup" class="popup_alert">
+          <div class="top"></div>
+          <div class="alert_icon"></div>
+          <span class="copy_area">
+              <h5>Bethany (39) wants do share her nude private pictures with you.</h5>
+              <p>Do you accept?</p>
+              <button class="navbtn popup-close"><span>Yes</span></button>
+              <button class="navbtn popup-close"><span>No</span></button>
+          </span> 
+    </div>
+</div>
+<div class="radar_scanner hidden">
+    <h3 class="radar_title" >Locating matching sex partners...</h3>
+    <div id="radar"><img src="radar-scanner.gif" /></div>
+</div>
+
+<div class="wrapper">
+
+  <div id="popup2" class="box">
+		<h3 class="boxheader">This Is NOT A Dating Site!</h3>
+        <div class="box_copy">
+           <p>Before we can show you a list and photos of women who live near you and are ready to  <u><strong>have sex right now</u></strong>, we need to ask a few quick questions.</p>
+          <button class="ok"><span>OK</span></button>
+        </div>
+    </div>
+
+	<div class="step1 marker_show hidden">
+	    <h3 class="boxheader"> <span class="step_label"> Question </span> <span class="circle1">1</span> <span class="circle2">2</span> <span class="circle2">3</span> <span class="circle2">4</span> </h3>
+        <div class="box_copy"> 
+        <p>Many of these women are desperate single moms and cheating wives looking for some fun. They could be your neighbors or someone you know. Do you agree to keep the identity of these women a secret?</p>
+        </div>
+            <a href="#" class="step_button step_button_1 next">YES</a>
+            <a href="#" class="step_button step_button_2 next">NO</a>
+	</div>
+	<div class="step2 marker_show hidden">
+	    <h3 class="boxheader"> <span class="step_label"> Question </span> <span class="circle2">1</span> <span class="circle1">2</span> <span class="circle2">3</span> <span class="circle2">4</span></h3>
+        <div class="box_copy"> 
+        <p>These women have asked us to not allow men that are seeking a "relationship". They only desire quick sex. Not dating. Do you agree to this request?</p>
+        </div>
+            <a href="#" class="step_button step_button_1 next">YES</a>
+            <a href="#" class="step_button step_button_2 next">NO</a>
+    </div>
+	<div class="step3 marker_show hidden">
+		<h3 class="boxheader"><span class="step_label"> Question </span> <span class="circle2">1</span> <span class="circle2">2</span> <span class="circle1">3</span> <span class="circle2">4</span></h3>
+        <div class="box_copy"> 
+        <p>SDo you agree to use a condom when having sex with a partner you meet on our site?</p>
+        </div>
+            <a href="#" class="step_button step_button_1 next">YES</a>
+            <a href="#" class="step_button step_button_2 next">NO</a>
+    </div>	
+	<div class="step4 marker_show hidden">
+		<h3 class="boxheader"><span class="step_label"> Question </span> <span class="circle2">1</span> <span class="circle2">2</span> <span class="circle2">3</span> <span class="circle1">4</span> </h3>
+        <div class="box_copy">
+        <p>Are you at least 24 years old? The women have requested that we not let those younger than 24 contact them because of past rude behavior by younger men.</p>
+        </div>
+            <a href="#" class="run_loading step_button step_button_1 next">YES</a>
+            <a href="#" class="run_loading step_button step_button_2 next">NO</a>
+    </div>	
+
+<div class="question step5 marker_show " id="q1" style="display:none;">
+
+	<h3 class="boxheader">What type of body turns you on?</h3>
+    <p class="stepinfo">(Please choose up to 3 answers)</p>
+
+    <div class="option clearfix">
+      <div class="option-title clearfix">
+        Skinny            
+      </div>
+    </div>
+    <div class="option clearfix">
+      <div class="option-title clearfix">
+        Regular            
+      </div>
+    </div>
+    <div class="option clearfix">
+      <div class="option-title clearfix">
+        BBW            
+      </div>
+    </div>
+    <div class="option clearfix">
+      <div class="option-title clearfix">
+        Big tits are a must            
+      </div>
+    </div>
+    <div class="option clearfix">
+      <div class="option-title clearfix">
+        Sexy ass is a must            
+      </div>
+    </div>
+    <button class="buttons steps-button" href="javascript:void(0)">Next &raquo;</button>
+</div>
+
+<div class="question step6 marker_show" id="q2" style="display:none;">
+	<h3 class="boxheader">What age of women fits you best?</h3>
+    <p class="stepinfo">(Please choose up to 3 answers)</p>
+
+    <div class="option2 clearfix">
+        <div class="option-title clearfix">21 - 25</div>
+    </div>
+
+    <div class="option2 clearfix">
+        <div class="option-title clearfix">25 - 32</div>
+    </div>
+
+    <div class="option2 clearfix">
+        <div class="option-title clearfix">32 - 37</div>
+    </div>
+
+    <div class="option2 clearfix">
+        <div class="option-title clearfix">37 - 45</div>
+    </div>
+
+    <div class="option2 clearfix">
+        <div class="option-title clearfix">45 and above</div>
+    </div>
+
+    <button class="buttons steps-button" href="javascript:void(0)">Next &raquo;</button>
+</div>
+
+<div class="question step7 marker_show hidden" id="q3" style="display:none;">
+
+    <h3 class="boxheader">What type of relationship are you looking for?  </h3>
+    <p class="stepinfo">(Please choose up to 3 answers)</p>
+
+<div class="option3 clearfix">
+      <div class="option-title clearfix">
+        One night stand            
+      </div>
+    </div>
+    <div class="option3 clearfix">
+      <div class="option-title clearfix">
+        Sex on multiple occasions            
+      </div>
+    </div>
+    <div class="option3 clearfix">
+      <div class="option-title clearfix">
+        Regular sex, but without any responsibility            
+      </div>
+    </div>
+    <div class="option3 clearfix">
+      <div class="option-title clearfix">
+        Dating            
+      </div>
+    </div>
+    <div class="option3 clearfix">
+      <div class="option-title clearfix">
+        Marriage            
+      </div>
+    </div>
+
+    <button class="buttons steps-button" href="javascript:void(0)">Next &raquo;</button></div>
+
+<div class="question step8 marker_show hidden" id="q4" style="display:none;">
+    <h3 class="boxheader">Distance between you and her?</h3>
+    <p class="stepinfo">(Please choose up to 3 answers)</p>
+
+    <div class="option4 clearfix">
+      <div class="option-title clearfix">
+        Within walking distance            
+      </div>
+    </div>
+    <div class="option4 clearfix">
+      <div class="option-title clearfix">
+        Same neighborhood           
+      </div>
+    </div>
+    <div class="option4 clearfix">
+      <div class="option-title clearfix">
+        Same ZIP code            
+      </div>
+    </div>
+    <div class="option4 clearfix">
+      <div class="option-title clearfix">
+        Within 50 miles            
+      </div>
+    </div>
+
+    <button class="buttons steps-button-final" href="javascript:void(0)">Next &raquo;</button>
+</div>
+
+<div id="final" class="results marker_show hidden">
+      <h3 class="boxheader">Thank you.</h3>
+    <div class="box_copy">You may now see our list and photos of women who are in your area. Again, please keep their identity a secret.
+	      <p>Click on the "Continue" button and search on the basis of your answers.</p>
+          <a class="steps-button-agree buttons" href="http://vvvv.perfect-dating-match.com/click">Continue  &raquo;</a>
+      </div>
+</div>
+</div>
+
+<script> 
+$(function() {
+	
+	$(".popup-close").on('click', function() {
+		$("#popup-wrapper").fadeOut();
+		$('.radar_scanner').fadeIn(400, function() {
+			$(this).delay(1500).fadeOut(300, function() {
+				$("#popup2").fadeIn(300);
+			});
+		});
+	});
+	
+	$(".ok").on('click', function() {
+		$("#popup2").fadeOut();
+		$(".step1").fadeIn();
+	});
+	
+	$(".next").on('click', function() {
+		$(this).parent().hide().next().fadeIn();
+	});
+
+	$(".steps-button").on('click', function() {
+		$(this).parent().hide().next().fadeIn();
+	});
+
+	$(".option, .option1, .option2, .option3, .option4").on('click', function() {
+		if ( $(this).hasClass('selected') )
+			$(this).removeClass('selected');
+		else
+			// if (.option.selected.length < 3) BUT .option has to be as first element in class="...
+			if( $( '.'+ $(this).attr('class').split(' ')[0] +'.selected' ).length < 3)
+				$(this).addClass('selected');			
+	});
+
+	$(".steps-button-final").on('click', function() {
+		$(".step8").fadeOut();
+		$(".results").fadeIn();
+	});
+})
+</script>
+<img width="1" height="1" src="http://main.exoclick.com/tag.php?goal=a06df17094fd9599cad32555b897a0d3">
+</body>
+
+</html>
